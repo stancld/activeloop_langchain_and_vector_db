@@ -1,2 +1,4 @@
-[tool.jupytext]
-formats = ["ipynb", ".nb.py:percent"]
+[tool.ruff]
+lint.ignore = [
+    "E402",  # Module level import not at top of file
+]

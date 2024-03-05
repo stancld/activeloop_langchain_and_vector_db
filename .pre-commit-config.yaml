@@ -10,6 +10,7 @@ repos:
       - id: check-json
       - id: debug-statements
       - id: end-of-file-fixer
+        exclude: notebooks/
       - id: mixed-line-ending
         args: [--fix=lf]
       - id: trailing-whitespace
@@ -30,11 +31,13 @@ repos:
         name: mypy
         args: []
         language: python
-        language_version: python3.11  # mypy hook installation fails in Python 3.12 due to removed distutils
+        language_version: python3.11
         pass_filenames: false
         types: [python]
-  -   repo: https://github.com/mwouts/jupytext
-      rev: v1.16.1
-      hooks:
-      - id: jupytext
-        args: [--sync]
+  - repo: https://github.com/mwouts/jupytext
+    rev: v1.16.1
+    hooks:
+    - id: jupytext
+      args: [--check, black, --pipe-fmt, .nb.py:percent]
+      additional_dependencies:
+        - black==24.2.0
