@@ -33,3 +33,8 @@ repos:
         language_version: python3.11  # mypy hook installation fails in Python 3.12 due to removed distutils
         pass_filenames: false
         types: [python]
+  -   repo: https://github.com/mwouts/jupytext
+      rev: v1.16.1
+      hooks:
+      - id: jupytext
+        args: [--sync]
