@@ -1,4 +1,5 @@
 deeplake
+google-api-python-client
 jupyterlab
 langchain
 openai
